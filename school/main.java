@@ -101,12 +101,10 @@ public class main {
 			else if (input == 2) {
 				System.out.println("School name " + school.getName());
 
-				for (Department dep : department11) {
-					System.out.println("Department name " + dep.getName());
 
-
-				}
-			} else {
+			} 
+			
+			else {
 				System.out.println("exit ");
 				loop = false;
 
