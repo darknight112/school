@@ -103,12 +103,14 @@ public class main {
 
 				for (Department dep : department11) {
 					System.out.println("Department name " + dep.getName());
+					for (Teacher element : dep.teacherList) {
 
+						System.out.println("Teacher name " + element.getName());
+
+					}
 
 				}
-			} 
-			
-			else {
+			} else {
 				System.out.println("exit ");
 				loop = false;
 
