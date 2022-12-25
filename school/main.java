@@ -108,7 +108,11 @@ public class main {
 						System.out.println("Teacher name " + element.getName());
 						for (Student stu : element.studentList) {
 							System.out.println("Student name " + stu.getName());
+							for (Course co : stu.courseList) {
 
+								System.out.println("Course name " + co.getName());
+
+							}
 						}
 					}
 
