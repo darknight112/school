@@ -111,8 +111,7 @@ public class main {
 							for (Course co : stu.courseList) {
 
 								System.out.println("Course name " + co.getName());
-								System.out.println(
-										"Enter Mark is "  + co.mark.getMark());
+
 							}
 						}
 					}
