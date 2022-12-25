@@ -22,6 +22,7 @@ public class main {
 		while (loop) {
 
 			System.out.println("Enter 1 to Create Department");
+			System.out.println("Enter 2 to Print info ");
 			System.out.println("Enter 0 to exit ");
 			int input = sr.nextInt();
 
@@ -97,7 +98,11 @@ public class main {
 				department11.add(d);
 			}
 
- 
+			else if (input == 2) {
+				System.out.println("School name " + school.getName());
+
+
+			} 
 			
 			else {
 				System.out.println("exit ");
