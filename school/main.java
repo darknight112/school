@@ -106,10 +106,7 @@ public class main {
 					for (Teacher element : dep.teacherList) {
 
 						System.out.println("Teacher name " + element.getName());
-						for (Student stu : element.studentList) {
-							System.out.println("Student name " + stu.getName());
 
-						}
 					}
 
 				}
