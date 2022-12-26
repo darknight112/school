@@ -3,13 +3,13 @@ package school;
 import java.util.*;
 
 public class Mark {
-	private int mark;
+	private double mark;
 
-	public int getMark() {
+	public double getMark() {
 		return mark;
 	}
 
-	public void setMark(int mark) {
+	public void setMark(double mark) {
 		this.mark = mark;
 	}
 	

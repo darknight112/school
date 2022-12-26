@@ -8,13 +8,18 @@ public class main {
 		School school = new School();
 		Scanner sr = new Scanner(System.in);
 		List<Department> department11 = new ArrayList<Department>();
+		Stack<String> inputHistory= new Stack<String>(); 
 
 		int newInput = 0;
 		System.out.println("Enter School name ");
 		String sname = sr.next();
 		school.setName(sname);
+		inputHistory.push(sname);
 		System.out.println("Enter School ID ");
 		int schoolId = sr.nextInt();
+		
+		String schoolIdString = Integer.toString(schoolId);
+		inputHistory.push(schoolIdString);
 		school.setId(schoolId);
 		boolean loop = true;
 		boolean condition = true;
@@ -23,26 +28,36 @@ public class main {
 
 			System.out.println("Enter 1 to Create Department");
 			System.out.println("Enter 2 to Print info ");
+			System.out.println("Enter 3 to Print history ");
+
 			System.out.println("Enter 0 to exit ");
 			int input = sr.nextInt();
+			String inputString = Integer.toString(input);
+			inputHistory.push(inputString);
 
 			if (input == 1) {
 				System.out.println("Enter Department name ");
 				String depName = sr.next();
+				
+				inputHistory.push(depName);
 				Department d = new Department();
 				d.setName(depName);
 				System.out.println("Enter Department ID ");
 				int depId = sr.nextInt();
+				String depIdString = Integer.toString(depId);
+				inputHistory.push(depIdString);
 				d.setId(depId);
 				condition = true;
 				while (condition) {
 					Teacher t = new Teacher();
-
 					System.out.println("Enter Teacher name ");
 					String teacherIn = sr.next();
+					inputHistory.push(teacherIn);
 					t.setName(teacherIn);
 					System.out.println("Enter Teacher ID ");
 					int teacherId = sr.nextInt();
+					String teacherIdString = Integer.toString(teacherId);
+					inputHistory.push(teacherIdString);
 					t.setId(teacherId);
 					boolean studentLoop = true;
 					while (studentLoop) {
@@ -50,9 +65,12 @@ public class main {
 
 						System.out.println("Enter Student name ");
 						String studentIn = sr.next();
+						inputHistory.push(studentIn);
 						st.setName(studentIn);
 						System.out.println("Enter Student ID ");
 						int studentId = sr.nextInt();
+						String studentIdString = Integer.toString(studentId);
+						inputHistory.push(studentIdString);
 						st.setId(studentId);
 						boolean courseLoop = true;
 						while (courseLoop) {
@@ -60,17 +78,24 @@ public class main {
 							Course c = new Course();
 							System.out.println("Enter Course name ");
 							String courseIn = sr.next();
+							inputHistory.push(courseIn);
 							c.setName(courseIn);
 							System.out.println("Enter Course ID ");
 							int courseId = sr.nextInt();
+							String courseIdString = Integer.toString(courseId);
+							inputHistory.push(courseIdString);
 							c.setId(courseId);
 
 							System.out.println("Enter Mark ");
-							int markIn = sr.nextInt();
+							double markIn = sr.nextInt();
+							String markInString = Double.toString(markIn);
+							inputHistory.push(markInString);
 							c.mark.setMark(markIn);
 							st.courseList.add(c);
 							System.out.println("Do you want to add more course? 1--> yes 2--> no ");
 							int newCourse = sr.nextInt();
+							String newCourseString = Integer.toString(newCourse);
+							inputHistory.push(newCourseString);
 							if (newCourse == 2) {
 								courseLoop = false;
 
@@ -80,6 +105,8 @@ public class main {
 						t.studentList.add(st);
 						System.out.println("Do you want to add more student? 1--> yes 2--> no ");
 						int newStudent = sr.nextInt();
+						String newStudentString = Integer.toString(newStudent);
+						inputHistory.push(newStudentString);
 						if (newStudent == 2) {
 							studentLoop = false;
 
@@ -89,6 +116,8 @@ public class main {
 
 					System.out.println("Do you want to add more teachers? 1--> yes 2--> no ");
 					int select = sr.nextInt();
+					String selectString = Integer.toString(select);
+					inputHistory.push(selectString);
 					if (select == 2) {
 						condition = false;
 
@@ -118,7 +147,14 @@ public class main {
 					}
 
 				}
-			} else {
+			} 
+			else if(input ==3) {
+				for (String s : inputHistory) {
+					System.out.println(s);
+				}
+			}
+		
+			else {
 				System.out.println("exit ");
 				loop = false;
 
