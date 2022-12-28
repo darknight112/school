@@ -34,7 +34,7 @@ public class main {
 			System.out.println("Enter 2 to Print info ");
 			System.out.println("Enter 3 to Print history ");
 			System.out.println("Enter 4 to search for a word in user input history ");
-
+			System.out.println("Enter 5 to read user input history file ");
 			System.out.println("Enter 0 to exit ");
 			int input = sr.nextInt();
 			String inputString = Integer.toString(input);
@@ -215,7 +215,23 @@ public class main {
 			      
 			}
 			
+			else if(input==5) {
+				try {
+				    BufferedReader read = new BufferedReader(new FileReader("C:\\Users\\Lenovo\\eclipse-workspace\\school\\history.txt")); //Creation of BufferedReader object
+					Scanner scan = new Scanner(read);
+					while(scan.hasNextLine()) {
+						System.out.println(scan.nextLine());
+					}
+				}
+		        catch (IOException except)
+		        {
+		            except.printStackTrace();
+		        }
+
+				
+
 			
+			}
 			
 		
 			else {
