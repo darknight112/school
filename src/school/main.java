@@ -1,6 +1,8 @@
 package school;
-
+import java.io.*;
+import java.util.Scanner;
 import java.util.*;
+
 
 public class main {
 
@@ -24,11 +26,14 @@ public class main {
 		boolean loop = true;
 		boolean condition = true;
 
+
+
 		while (loop) {
 
 			System.out.println("Enter 1 to Create Department");
 			System.out.println("Enter 2 to Print info ");
 			System.out.println("Enter 3 to Print history ");
+			System.out.println("Enter 4 to search for a word in user input history ");
 
 			System.out.println("Enter 0 to exit ");
 			int input = sr.nextInt();
@@ -152,7 +157,66 @@ public class main {
 				for (String s : inputHistory) {
 					System.out.println(s);
 				}
+		        try
+		        {
+		             
+		            // Initializing BufferedWriter
+		            BufferedWriter historyBuffer = new BufferedWriter(new FileWriter("history.txt"));
+
+		            System.out.println("Buffered Writer start writing :)");
+
+		            for(String x : inputHistory) {
+		            	historyBuffer.write("\n"+x);
+		            }
+		            
+		            historyBuffer.close();
+		            System.out.println("This is the user input history");
+		        }
+		        catch (IOException except)
+		        {
+		            except.printStackTrace();
+		        }
+		 
+		    }
+			else if(input==4) {
+
+				try {
+			      BufferedReader br = new BufferedReader(new FileReader("C:\\Users\\Lenovo\\eclipse-workspace\\school\\history.txt")); //Creation of BufferedReader object
+			      System.out.println("Enter the word you want to search ");
+			      String searchWord = sr.next();
+			      String s;
+			      int count=0;
+			     
+			      while((s=br.readLine())!=null)   //Reading Content from the file
+			      {
+			           if (s.equals(searchWord))   //Search for the given word
+			              {
+			                   count++;    //If Present increase the count by one
+			               }
+			           
+			          }
+			      
+			      if(count!=0)  //Check for count not equal to zero
+			      {
+			         System.out.println("The given word is present for "+count+ " Times in the file");
+			      }
+			      else
+			      {
+			         System.out.println("The given word is not present in the file");
+			      }
+			      
+			      
+			         br.close();
+			   }
+		        catch (IOException except)
+		        {
+		            except.printStackTrace();
+		        }
+			      
 			}
+			
+			
+			
 		
 			else {
 				System.out.println("exit ");
